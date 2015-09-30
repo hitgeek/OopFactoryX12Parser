@@ -73,7 +73,7 @@ namespace OopFactory.X12.Parsing.Model
                 LoopSpecification spec = matchingLoopSpecs.Where(ls => ls.StartingSegment.EntityIdentifiers.Any(ei => ei.Code.ToString() == segment.GetElement(1) || ei.Code.ToString() == "Item" + segment.GetElement(1))).FirstOrDefault();
                 if (spec == null)
                 {
-                    if (matchingLoopSpecs.Where(ls => ls.StartingSegment.SegmentId == segment.SegmentId).Count() == 1)
+                    if (matchingLoopSpecs.Where(ls => ls.StartingSegment.SegmentId == segment.SegmentId).Count() != 1)
                     {
                         spec = matchingLoopSpecs.Where(ls => ls.StartingSegment.SegmentId == segment.SegmentId).First();
                     }
